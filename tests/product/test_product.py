@@ -1,4 +1,3 @@
-from itertools import product
 from inventory_report.inventory.product import Product
 
 
