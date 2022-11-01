@@ -4,7 +4,7 @@ from inventory_report.reports.simple_report import SimpleReport
 
 class CompleteReport(SimpleReport):
     def estoque_por_empresa(list):
-        list_produtos = []
+        list_produtos = ""
         list_empresas = [name["nome_da_empresa"] for name in list]
         counter = Counter(list_empresas)
         for produtos in counter:
