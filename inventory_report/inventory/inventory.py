@@ -8,26 +8,35 @@ from inventory_report.reports.complete_report import CompleteReport
 def import_csv(path, type):
     with open(path) as file:
         reader = csv.DictReader(file)
-        data = list(reader)
+        _list = list(reader)
         if type == "simples":
-            return SimpleReport.generate(data)
-        return CompleteReport.generate(data)
+            return SimpleReport.generate(_list)
+        elif type == "completo":
+            return CompleteReport.generate(_list)
+        else:
+            raise TypeError
 
 
 def import_json(path, type):
     with open(path) as file:
-        data = json.load(file)
+        _list = json.load(file)
         if type == "simples":
-            return SimpleReport.generate(data)
-        return CompleteReport.generate(data)
+            return SimpleReport.generate(_list)
+        elif type == "completo":
+            return CompleteReport.generate(_list)
+        else:
+            raise TypeError
 
 
 def import_xml(path, type):
     with open(path) as file:
-        data = xmltodict.parse(file.read())["dataset"]["record"]
+        _list = xmltodict.parse(file.read())["dataset"]["record"]
         if type == "simples":
-            return SimpleReport.generate(data)
-        return CompleteReport.generate(data)
+            return SimpleReport.generate(_list)
+        elif type == "completo":
+            return CompleteReport.generate(_list)
+        else:
+            raise TypeError
 
 
 class Inventory():
