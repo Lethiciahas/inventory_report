@@ -36,4 +36,7 @@ class Inventory():
             return import_csv(path, type)
         elif ".json" in path:
             return import_json(path, type)
-        return import_xml(path, type)
+        elif ".xml" in path:
+            return import_xml(path, type)
+        else:
+            return TypeError
